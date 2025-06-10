@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudioZoom | Capturando a Essência</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="main-header">
+    <div class="container">
+        <a href="#" class="logo">StudioZoom</a>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#ensaios">Ensaios</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#orcamento">Orçamento</a></li>
+            </ul>
+        </nav>
+        <button id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+    </div>
+</header>
+
+    <main>
+        <section class="hero">
+            <video autoplay loop muted playsinline class="hero-video">
+                <source src="Vídeo_Pronto_StudioZoom_Apresenta.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            <div class="container hero-content">
+                <h1>Capturando Emoções em Cada Clique</h1>
+                <p>Fotografia e Vídeo para Momentos Inesquecíveis.</p>
+            </div>
+        </section>
+
+        <section id="galeria" class="section-dark">
+            <div class="container section-header">
+                <h2>Galeria</h2>
+                <p class="section-subtitle">Navegue por nossos trabalhos mais recentes.</p>
+            </div>
+            <div class="horizontal-gallery-wrapper">
+                <div class="scroll-hint">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                    <span>Arraste</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+                <div class="horizontal-gallery-container">
+                    <div class="horizontal-gallery">
+                        <div class="gallery-item"><img src="img/0010.png" class="img-thumb" alt="Ensaio 1"></div>
+                        <div class="gallery-item"><img src="img/0020.png" class="img-thumb" alt="Ensaio 2"></div>
+                        <div class="gallery-item"><img src="img/0030.png" class="img-thumb" alt="Ensaio 3"></div>
+                        <div class="gallery-item"><img src="img/0040.png" class="img-thumb" alt="Ensaio 4"></div>
+                        <div class="gallery-item"><img src="img/0050.png" class="img-thumb" alt="Ensaio 5"></div>
+                        <div class="gallery-item"><img src="img/0060.png" class="img-thumb" alt="Ensaio 6"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ensaios" class="section-light">
+            <div class="container section-header">
+                <h2>Tipos de Ensaio</h2>
+                <p class="section-subtitle">Soluções criativas para cada necessidade.</p>
+            </div>
+            <div class="container">
+                <div class="ensaios-grid">
+                    <div class="flip-card" tabindex="0">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front" style="background-image: url('img/00010.png');"><h3>Casamento</h3></div>
+                            <div class="flip-card-back"><p>Eternizamos o seu dia mais especial com sensibilidade e arte.</p><a href="#orcamento" class="btn-card">Orçamento</a></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" tabindex="0">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front" style="background-image: url('img/00020.png');"><h3>Gestante</h3></div>
+                            <div class="flip-card-back"><p>Registros delicados da doce espera e da beleza da maternidade.</p><a href="#orcamento" class="btn-card">Orçamento</a></div>
+                        </div>
+                    </div>
+                    <div class="flip-card" tabindex="0">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front" style="background-image: url('img/00030.png');"><h3>Corporativo</h3></div>
+                            <div class="flip-card-back"><p>Fotografia e vídeo que fortalecem a imagem da sua marca.</p><a href="#orcamento" class="btn-card">Orçamento</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section-dark">
+            <div class="container section-header">
+                <h2>Portfólio em Vídeo</h2>
+                <p class="section-subtitle">Veja o mundo através das nossas lentes.</p>
+            </div>
+            <div class="container">
+                <div class="video-wrapper">
+                    <video src="Roteiro_de_Vídeo_StudioZoom.mp4" poster="img/video-poster.jpg" id="portfolio-video"></video>
+                    <div class="play-button-overlay" id="play-button" aria-label="Reproduzir Vídeo">
+                        <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" stroke-width="10" stroke="#fff" fill="none"></circle><polygon points="80,60 130,100 80,140" fill="#fff"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="orcamento" class="section-light">
+            <div class="container section-header">
+                <h2>Solicite um Orçamento</h2>
+                <p class="section-subtitle">Vamos criar algo incrível juntos.</p>
+            </div>
+            <div class="container">
+                <form id="contact-form" novalidate>
+                    <div class="form-group">
+                        <input type="text" id="nome" name="nome" required placeholder=" ">
+                        <label for="nome">Nome Completo</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <label for="email">Seu Melhor Email</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="evento" name="evento" required>
+                            <option value="" disabled selected>Tipo de evento</option>
+                            <option value="casamento">Casamento</option>
+                            <option value="aniversario">Aniversário</option>
+                            <option value="gestante">Ensaio Gestante</option>
+                            <option value="corporativo">Corporativo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select id="pacote" name="pacote" required>
+                            <option value="" disabled selected>Pacote de serviços</option>
+                        </select>
+                    </div>
+                     <div class="form-group full-width">
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder=" "></textarea>
+                        <label for="mensagem">Conte-nos mais sobre seu evento (opcional)</label>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Solicitação</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>&copy; 2025 StudioZoom. Todos os direitos reservados.</p></footer>
+
+    <div id="modal" class="modal"><span class="fechar-modal">&times;</span><img class="modal-conteudo" id="modal-img"></div>
+</body>
+<script src="script.js"></script>
+</html>

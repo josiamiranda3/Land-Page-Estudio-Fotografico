@@ -1,0 +1,180 @@
+/* GERAL & VARIAVEIS */
+:root {
+    --color-dark: #121212;
+    --color-light: #f8f8f8;
+    --color-accent: #c5a47e; /* Dourado/Âmbar */
+    --color-text-dark: #333;
+    --color-text-light: #e0e0e0;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { background-color: var(--color-dark); font-family: var(--font-body); color: var(--color-text-light); }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+section { padding: 100px 0; overflow: hidden; }
+
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-header h2 { font-size: 3rem; margin-bottom: 10px; font-family: var(--font-heading); color: var(--color-accent); }
+.section-header .section-subtitle { font-size: 1.1rem; color: #aaa; }
+.section-light { background-color: var(--color-light); color: var(--color-text-dark); }
+.section-light .section-header h2 { color: var(--color-text-dark); }
+.section-light .section-header .section-subtitle { color: #666; }
+
+/* HEADER */
+#main-header { position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0; transition: background-color 0.4s, padding 0.4s; }
+#main-header.scrolled { background-color: rgba(18, 18, 18, 0.9); backdrop-filter: blur(10px); padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+#main-header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.8rem; font-family: var(--font-heading); text-decoration: none; color: white; }
+#main-header nav ul { list-style: none; display: flex; gap: 30px; }
+#main-header nav a { color: white; text-decoration: none; font-weight: 500; position: relative; padding-bottom: 5px; }
+#main-header nav a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 2px; background-color: var(--color-accent); transition: width 0.4s; }
+#main-header nav a:hover::after { width: 100%; }
+
+/* HERO COM VÍDEO DE FUNDO */
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.hero-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%); object-fit: cover; z-index: 1; }
+.hero-content { position: relative; text-align: center; color: white; z-index: 2; padding: 0 20px; }
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); }
+.hero p { font-size: clamp(1rem, 2vw, 1.5rem); text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); }
+
+
+/* GALERIA HORIZONTAL */
+.horizontal-gallery-wrapper { position: relative; }
+.scroll-hint { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 30px; z-index: 10; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; pointer-events: none; opacity: 1; transition: opacity 0.5s; }
+.scroll-hint.hidden { opacity: 0; }
+.horizontal-gallery-container { height: 60vh; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.horizontal-gallery-container::-webkit-scrollbar { display: none; }
+.horizontal-gallery { display: flex; height: 100%; width: max-content; }
+.gallery-item { height: 100%; padding: 0 1vw; }
+.gallery-item img { height: 100%; width: auto; border-radius: 10px; cursor: pointer; transition: transform 0.4s, filter 0.4s; filter: grayscale(50%) brightness(0.8); }
+.gallery-item img:hover { transform: scale(1.05); filter: grayscale(0%) brightness(1); }
+
+/* ENSAIOS - FLIP CARDS */
+.ensaios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.flip-card { background-color: transparent; height: 400px; perspective: 1500px; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
+.flip-card:hover .flip-card-inner, .flip-card:focus .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 15px; overflow: hidden; }
+.flip-card-front { background-size: cover; background-position: center; color: white; display: flex; align-items: flex-end; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.flip-card-front h3 { font-size: 2rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.7); }
+.flip-card-back { background-color: var(--color-dark); color: var(--color-text-light); transform: rotateY(180deg); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; border: 1px solid #444; }
+.flip-card-back p { font-size: 1.1rem; margin-bottom: 30px; }
+.btn-card { padding: 12px 25px; background-color: var(--color-accent); color: var(--color-dark); text-decoration: none; border-radius: 50px; font-weight: 500; transition: background-color 0.3s, transform 0.3s; }
+.btn-card:hover { background-color: #d8b897; transform: scale(1.05); }
+
+/* PORTFOLIO VIDEO */
+.video-wrapper { position: relative; max-width: 900px; margin: auto; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+#portfolio-video { display: block; width: 100%; }
+.play-button-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.3); display: flex; justify-content: center; align-items: center; cursor: pointer; transition: background-color 0.4s, opacity 0.4s; }
+.play-button-overlay.hidden { opacity: 0; pointer-events: none; }
+.play-button-overlay svg { width: 100px; height: 100px; transition: transform 0.4s; }
+.play-button-overlay:hover svg { transform: scale(1.1); }
+
+/* ORÇAMENTO FORM */
+#contact-form { display: flex; flex-wrap: wrap; gap: 25px 30px; max-width: 800px; margin: auto; }
+.form-group { position: relative; width: calc(50% - 15px); }
+.form-group.full-width { width: 100%; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 15px; border: 1px solid #ccc; border-radius: 5px; background: transparent; font-size: 1rem; font-family: var(--font-body); color: var(--color-text-dark); transition: border-color 0.3s; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--color-accent); }
+.form-group label { position: absolute; top: 15px; left: 15px; color: #666; pointer-events: none; transition: all 0.3s ease; }
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:not(:placeholder-shown) + label,
+.form-group input:focus + label,
+.form-group textarea:focus + label { top: -10px; left: 10px; font-size: 0.8rem; background-color: var(--color-light); padding: 0 5px; color: var(--color-accent); }
+.form-group select { color: #666; cursor: pointer; }
+.form-group select:required:invalid { color: #666; }
+.form-group select option { color: var(--color-text-dark); }
+.form-group select:focus, .form-group select:valid { color: var(--color-text-dark); }
+.btn-submit { width: 100%; padding: 18px; font-size: 1.2rem; font-family: var(--font-heading); background-color: var(--color-dark); color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; }
+.btn-submit:hover { background-color: #333; }
+
+/* MODAL */
+.modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.95); backdrop-filter: blur(5px); animation: fadeIn 0.5s; }
+.modal-conteudo { display: block; margin: auto; max-width: 85%; max-height: 85%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.7); animation: zoomIn 0.5s forwards; }
+.fechar-modal { position: absolute; top: 25px; right: 45px; color: #fff; font-size: 50px; cursor: pointer; transition: transform 0.3s; }
+.fechar-modal:hover { transform: rotate(90deg); }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zoomIn { from { transform: translate(-50%, -50%) scale(0.7); } to { transform: translate(-50%, -50%) scale(1); } }
+
+/* FOOTER */
+footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; }
+
+/* ANIMAÇÕES DE ENTRADA */
+.anim-reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.anim-reveal.visible { opacity: 1; transform: translateY(0); }
+
+
+/* ESTILOS DO MENU HAMBURGER E NAVEGAÇÃO MOBILE */
+
+#hamburger-btn {
+    display: none; /* Escondido em telas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Fica acima de outros elementos */
+}
+
+#hamburger-btn .line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: transform 0.4s, opacity 0.4s;
+}
+
+/* Animação do Hamburger para "X" */
+#hamburger-btn.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+#hamburger-btn.active .line:nth-child(2) {
+    opacity: 0;
+}
+#hamburger-btn.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* MEDIA QUERY PARA TELAS MENORES (TABLETS E CELULARES) */
+@media (max-width: 768px) {
+    #main-header nav#main-nav {
+        /* Esconde o menu de navegação no mobile por padrão */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(18, 18, 18, 0.98);
+        backdrop-filter: blur(10px);
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Animação de entrada */
+        clip-path: circle(0% at top right);
+        transition: clip-path 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    #main-header nav#main-nav.active {
+        /* Mostra o menu quando ativo */
+        clip-path: circle(150% at top right);
+    }
+
+    #main-header nav#main-nav ul {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    #main-header nav#main-nav a {
+        font-size: 2rem; /* Aumenta o tamanho da fonte para toque */
+    }
+
+    #hamburger-btn {
+        display: block; /* Mostra o botão hamburger */
+    }
+}
